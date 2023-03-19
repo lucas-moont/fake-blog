@@ -11,7 +11,7 @@ async function readPosts(){
     if(json.length > 0){
         postArea.innerHTML = ''
         json.forEach(item => {
-            let postHtml = `<div><h1>${item.title}</h1><p>${item.body}</p></div>`
+            let postHtml = `<div><h2>${item.title}</h2><p>${item.body}</p></div>`
             postArea.innerHTML += postHtml
         });
     }else{
@@ -38,7 +38,7 @@ async function addNewPosts(title, body){
     let postArea = document.querySelector('.posts')
     let postAreaHTML = postArea.innerHTML
 
-    let newPostCol = `<div><h1>${title}</h1><p>${body}</p></div>`
+    let newPostCol = `<div><h2>${title}</h2><p>${body}</p></div>`
     postArea.innerHTML = newPostCol + postAreaHTML
     document.querySelector('#titleField').value = ''
     document.querySelector('#bodyField').value = ''
