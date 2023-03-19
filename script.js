@@ -1,13 +1,20 @@
-document.querySelector('#botao').addEventListener('click', () => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
-    .then((response) => {
-        return response.json()
-    })
-    .then((data) => {
-        data.forEach(element => {
-            console.log(element.title)
-        });
-    })
+async function readPosts(){
+    let postArea = document.querySelector('.posts')
+    postArea.innerHTML = ''
+    postArea.innerHTML = 'Carregando...'
 
-    console.log("Here I am.")
-})
+    let response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    let json = await response.json()
+
+    if(json.length > 0){
+        postArea.innerHTML = ''
+        json.forEach(item => {
+            let postHtml = `<h1>${item.title}</h1><p>${item.body}</p><hr>`
+            postArea.innerHTML += postHtml
+        });
+    }else{
+        postArea.innerHTML = 'Nenhum post encontrado.'
+    }
+}
+
+readPosts()
