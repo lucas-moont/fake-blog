@@ -35,9 +35,15 @@ async function addNewPosts(title, body){
         }
     )
     
+    let postArea = document.querySelector('.posts')
+    let postAreaHTML = postArea.innerHTML
+
+    let newPostCol = `<div><h1>${title}</h1><p>${body}</p></div>`
+    postArea.innerHTML = newPostCol + postAreaHTML
     document.querySelector('#titleField').value = ''
     document.querySelector('#bodyField').value = ''
-    readPosts()
+    //readPosts()
+    //The function upwards would be used if the fake API really showed new posts. As it is just a fake API for studies purposes, I did a different function to manually add the new post to the grid.
 }
 
 function inserir(){
