@@ -1,3 +1,5 @@
+let insertBtn = document.querySelector('#insertBtn')
+
 async function readPosts(){
     let postArea = document.querySelector('.posts')
     postArea.innerHTML = ''
@@ -17,4 +19,17 @@ async function readPosts(){
     }
 }
 
+async function inserir(){
+    let title = document.querySelector('#titleField').value
+    let body = document.querySelector('#bodyField').value 
+
+    if(title && body){
+
+    }else{
+        alert('Um ou mais campos não foram preenchidos.')
+    }
+}
+
+
+insertBtn.addEventListener('click', inserir)
 readPosts()
